@@ -1,4 +1,4 @@
-#This is the source used for Political Biases#
+#This is the source used for Choosing Political Biases#
 
 #https://my.lwv.org/california/torrance-area/article/how-reliable-your-news-source-understanding-media-bias-2022
 
@@ -398,36 +398,36 @@
 
 
 # Charlie Spiering #
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
-["", "Charlie Spiering", "Breitbart"]
+["In Cambodia, Joe Biden Mistakenly Refers to Prime Minister of ‘Colombia’", "Charlie Spiering", "Breitbart"]
+["Oldest American President in Office Joe Biden Turns 80 as He Weighs Reelection Campaign", "Charlie Spiering", "Breitbart"]
+["Joe Biden Hosts Secret Wedding for His Granddaughter at the White House", "Charlie Spiering", "Breitbart"]
+["Post-Election Joe Biden Warns of Upcoming ‘Setbacks’ in the Economy", "Charlie Spiering", "Breitbart"]
+["Leftist Activists Organize Multi-Million Dollar Special Operations to Defend Hunter Biden", "Charlie Spiering", "Breitbart"]
+["Donald Trump Announces 2024 Run for President: ‘America’s Comeback Starts Right Now’", "Charlie Spiering", "Breitbart"]
+["Joe Biden Stages 30-Second Photo-Op Responding to Explosion in Poland", "Charlie Spiering", "Breitbart"]
+["Joe Biden Skips Important G20 Dinner After ‘Full Day in Meetings’", "Charlie Spiering", "Breitbart"]
+["No Mention of Chinese Fentanyl in Joe Biden’s Meeting with Xi Jinping", "Charlie Spiering", "Breitbart"]
+["Joe Biden: Democrats Likely Don’t Have the Votes to Codify Roe After Midterms", "Charlie Spiering", "Breitbart"]
 
 
 
 # Slight Conservative Leanings #
-# News Source #
+# Washington Times #
 
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Seth McLaughlin #
+["Deep bench of GOP White House hopefuls undaunted by Trump — so far", "Seth McLaughlin", "Washington Times"]
+["Kari Lake fights like Trump against election loss in Arizona, emerges as possible Trump running mate", "Seth McLaughlin", "Washington Times"]
+["Warnock sees Trump as anchor around Walker’s neck in Georgia runoff race", "Seth McLaughlin", "Washington Times"]
+["Trump sets off on race for White House, promises to make America ‘great and glorious again’", "Seth McLaughlin", "Washington Times"]
+["Georgia Dems welcome idea of Trump launching 2024 bid now in hopes it would boost Warnock in runoff", "Seth McLaughlin", "Washington Times"]
+["Mutiny: GOP figures turn on Trump for deflating party’s midterm score", "Seth McLaughlin", "Washington Times"]
+["‘What-ifs’ plague GOP after midterms temper outlook, spark Trump criticism", "Seth McLaughlin", "Washington Times"]
+["Republican ‘red wave’ evaporates, but GOP still inching toward House majority", "Seth McLaughlin", "Washington Times"]
+["Republicans on path to flipping House, hope to put a check on Biden agenda", "Seth McLaughlin", "Washington Times"]
+["Brian Kemp defeats Stacey Abrams in Georgia governor’s race for second time", "Seth McLaughlin", "Washington Times"]
 
 
 
@@ -437,17 +437,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Susan Ferrechio #
+["McConnell at 80 defies exodus of Capitol’s oldest leaders while discontent simmers in GOP base", "Susan Ferrechio", "Washington Times"]
+["Democrats deploy ‘extreme legal measures’ in bid to block Trump’s run", "Susan Ferrechio", "Washington Times"]
+["Pelosi stepping down from leadership role following midterm losses that cost Dems House majority", "Susan Ferrechio", "Washington Times"]
+["GOP seizes House majority, ending one-party control and halting Biden agenda", "Susan Ferrechio", "Washington Times"]
+["Back to the future: Trump revives 2016 playbook for his quest to recapture White House", "Susan Ferrechio", "Washington Times"]
+["Trump gears up for another run, and his base is ready to support him again", "Susan Ferrechio", "Washington Times"]
+["Senate Republicans pin blame on Trump and McConnell for red wave fizzle", "Susan Ferrechio", "Washington Times"]
+["With Trump in decline, GOP turns eyes to ‘the Ron DeSantis show’", "Susan Ferrechio", "Washington Times"]
+["Ron Johnson blasts Mandela Barnes’ late concession, blames ‘corporate media’ for delaying race call", "Susan Ferrechio", "Washington Times"]
+["Feeling the pinch: Dems miss the mark with voters irked by high crime and high prices", "Susan Ferrechio", "Washington Times"]
 
 
 
@@ -457,17 +457,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Robert Knight #
+["Christmas queens and the oxymoronically named Respect for Marriage Act", "Robert Knight", "Washington Times"]
+["To Biden and the left, being an ‘election denier’ is one rung below child molester", "Robert Knight", "Washington Times"]
+["The Democrats’ playbook: Deny, deny, deny", "Robert Knight", "Washington Times"]
+["Parents’ revolt against leftists’ education ideology should be a tsunami", "Robert Knight", "Washington Times"]
+["The FBI and liberal media collusion grinds on", "Robert Knight", "Washington Times"]
+["Informed voters and honest elections are left’s worst nightmare", "Robert Knight", "Washington Times"]
+["Charlie Crist’s ‘deplorable’ moment", "Robert Knight", "Washington Times"]
+["The lies that blind American citizens", "Robert Knight", "Washington Times"]
+["Blissfully unaware in Vermont or knowingly radical?", "Robert Knight", "Washington Times"]
+["Impatient Democrats hear the clock ticking", "Robert Knight", "Washington Times"]
 
 
 
@@ -477,17 +477,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Ramsey Touchberry #
+["Climate reparations get cold shoulder from activists, conservatives ahead of expected GOP roadblock", "Ramsey Touchberry", "Washington Times"]
+["With help from GOP, same-sex marriage is one step closer to becoming law of the land", "Ramsey Touchberry", "Washington Times"]
+["Senate Republicans bat down effort to delay leadership elections until after Georgia Senate runoff", "Ramsey Touchberry", "Washington Times"]
+["Rick Scott launches long-shot bid to unseat Mitch McConnell as Senate GOP leader", "Ramsey Touchberry", "Washington Times"]
+["State Republicans flex their muscles for taking on ‘woke’ financial firms", "Ramsey Touchberry", "Washington Times"]
+["Ron Johnson accuses Biden of being ‘highly compromised’ by family ties to Chinese money", "Ramsey Touchberry", "Washington Times"]
+["Ron Johnson says Senate Republicans ‘need a different governing model’ amid GOP ‘dysfunction’", "Ramsey Touchberry", "Washington Times"]
+["Trump blames McConnell for losing Senate, makes jab at his wife", "Ramsey Touchberry", "Washington Times"]
+["Manchin delivers another gut punch to Biden’s climate agenda", "Ramsey Touchberry", "Washington Times"]
+["Rick Scott on future of safety net programs: ‘We have got to start being honest with the public’", "Ramsey Touchberry", "Washington Times"]
 
 
 
@@ -497,17 +497,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Don Feder #
+["Joe Anger: Biden’s bitterness drives voters away", "Don Feder", "Washington Times"]
+["Democrats dig the graves of freedom and prosperity", "Don Feder", "Washington Times"]
+["Trust China? Taiwan isn’t about to stick its head in the tiger’s mouth", "Don Feder", "Washington Times"]
+["Forget banned books week. We need a banned peoples’ week", "Don Feder", "Washington Times"]
+["How I became an insurrectionist threat to Democracy", "Don Feder", "Washington Times"]
+["Biden and his fascist party rail at ‘semi-fascist’ Republicans", "Don Feder", "Washington Times"]
+["American civilization is being destroyed from within by the ‘Republic of Nice’", "Don Feder", "Washington Times"]
+["Voters need to be educated on the importance of the family", "Don Feder", "Washington Times"]
+["God and man in Fargo: Faith of our fathers is the key to recovering America’s greatness", "Don Feder", "Washington Times"]
+["It’s not just Biden who’s too old — progressivism is too", "Don Feder", "Washington Times"]
 
 
 
@@ -517,17 +517,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Tom Basile #
+["Biden’s fuzzy math fuels racial division", "Tom Basile", "Washington Times"]
+["Masking now a symbol of COVID-19 pandemic’s mental health toll", "Tom Basile", "Washington Times"]
+["Restoring dignity of work in America", "Tom Basile", "Washington Times"]
+["America and the death of television", "Tom Basile", "Washington Times"]
+["Lessons for America on George Jetson’s birthday", "Tom Basile", "Washington Times"]
+["Fauci and the case for mandatory retirement", "Tom Basile", "Washington Times"]
+["I never thought I’d leave New York", "Tom Basile", "Washington Times"]
+["Reparations: The left’s new segregation", "Tom Basile", "Washington Times"]
+["Only faith and wisdom will reduce the senseless violence", "Tom Basile", "Washington Times"]
+["The left’s climate panic is making people sick", "Tom Basile", "Washington Times"]
 
 
 
@@ -537,17 +537,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Mark A. Kellner #
+["Higher Ground: Is religious freedom under attack?", "Mark A. Kellner", "Washington Times"]
+["Tajikistan should release ailing Jehovah’s Witness from prison, Rubio says", "Mark A. Kellner", "Washington Times"]
+["U.S. Catholic bishops elect conservative officers, rebuff a Francis ally", "Mark A. Kellner", "Washington Times"]
+["New study finds demand for Jewish chaplains, but lack of recognition in the community", "Mark A. Kellner", "Washington Times"]
+["‘Highly religious’ Americans say Earth merits protection, but fewer fear climate change: Study", "Mark A. Kellner", "Washington Times"]
+["Mormon Church backs ‘Respect for Marriage Act,’ writing same-sex nuptials into federal law", "Mark A. Kellner", "Washington Times"]
+["‘Jesus’ movie, outreach tool for decades, dubbed in 2,000th language", "Mark A. Kellner", "Washington Times"]
+["Church-goers not attending services as often post-COVID, survey finds", "Mark A. Kellner", "Washington Times"]
+["Higher Ground: Politics in the pews heading into midterm elections", "Mark A. Kellner", "Washington Times"]
+["Wash. state can investigate evangelical university’s anti-LGBTQ hiring practices, judge rules", "Mark A. Kellner", "Washington Times"]
 
 
 
@@ -557,17 +557,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Stephen Dinan #
+["GOP demands prosecution data from Biden administration, says border jumpers should face charges", "Stephen Dinan", "Washington Times"]
+["Hidden COVID crisis: Violent juvenile crime exploded amid school shutdowns", "Stephen Dinan", "Washington Times"]
+["House GOP sharpens knives for probes, tells senior Biden officials to get ready to testify", "Stephen Dinan", "Washington Times"]
+["Democrats and Republicans say DHS isn’t prepared for the looming migrant surge", "Stephen Dinan", "Washington Times"]
+["Texas governor expands migrant busing campaign to include Philadelphia", "Stephen Dinan", "Washington Times"]
+["Voters say view from White House is largely divorced from what’s happening in their lives", "Stephen Dinan", "Washington Times"]
+["‘Unacceptable’: Republicans blast Biden efforts to recover stolen pandemic unemployment cash", "Stephen Dinan", "Washington Times"]
+["Feds paid for room service, laundry and babysitters for illegal immigrants kept at hotels", "Stephen Dinan", "Washington Times"]
+["Supreme Court’s two Black justices diverge on affirmative action", "Stephen Dinan", "Washington Times"]
+["Illegal immigrant convicted of murdering good samaritan whistleblower", "Stephen Dinan", "Washington Times"]
 
 
 
@@ -577,17 +577,17 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Richard W. Rahn #
+["Teaching Biden about energy and climate change", "Richard W. Rahn", "Washington Times"]
+["How much money should we spend to protect Congress, the Cabinet and Supreme Court?", "Richard W. Rahn", "Washington Times"]
+["Unrestrained government spending is resulting in a money meltdown", "Richard W. Rahn", "Washington Times"]
+["The dangers of too much power in the hands of one person", "Richard W. Rahn", "Washington Times"]
+["Biden and Democrats’ buying votes through fiscal irresponsibility", "Richard W. Rahn", "Washington Times"]
+["Larger government cannot make things better", "Richard W. Rahn", "Washington Times"]
+["Democrats’ new $739 billion bill benefits elites, leaves middle class behind", "Richard W. Rahn", "Washington Times"]
+["The Biden administration’s racist energy policies", "Richard W. Rahn", "Washington Times"]
+["Will green policies start a new worldwide famine?", "Richard W. Rahn", "Washington Times"]
+["The good news is the experts are often wrong", "Richard W. Rahn", "Washington Times"]
 
 
 
@@ -597,22 +597,22 @@
 
 
 
-# Author Name #
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
-["", "", ""]
+# Cal Thomas #
+["Republicans must ignore the media and do what they are elected to do", "Cal Thomas", "Washington Times"]
+["What the election in Brazil can teach America", "Cal Thomas", "Washington Times"]
+["Cheating the children while endangering America’s ability to compete on the world stage", "Cal Thomas", "Washington Times"]
+["Trump: You are not a dictator", "Cal Thomas", "Washington Times"]
+["Can Christian nationalism ‘ReAwaken America’?", "Cal Thomas", "Washington Times"]
+["California green dream could become a nightmare", "Cal Thomas", "Washington Times"]
+["Revisiting the flat tax and eliminating the IRS", "Cal Thomas", "Washington Times"]
+["Is Merrick Garland serious about Donald Trump?", "Cal Thomas", "Washington Times"]
+["George Soros and his ‘woke’ prosecutors", "Cal Thomas", "Washington Times"]
+["Biden’s slanderous rush to judgment of the Texas Border Patrol", "Cal Thomas", "Washington Times"]
 
 
 
 
-# News Source #
+# New York Post #
 
 
 
