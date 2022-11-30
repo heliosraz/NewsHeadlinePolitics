@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import os
-
+import langdetect
 #create base url and cases
 num_headlines=0
 error_count=0
@@ -37,7 +37,7 @@ for ytext in year_hrefs:
     # print(ytext)
     # print(year_soup)
     try:
-        print("test year")
+        # print("test year")
         month_block=year_soup.find("ol", class_="css-5emfqe")
         # print(month_block)
         month_links=month_block.find_all("a")
@@ -64,7 +64,7 @@ for ytext in year_hrefs:
             month_soup = BeautifulSoup(month_page.content, "html.parser")
             try:
                 # get all day urls
-                print("test month")
+                # print("test month")
                 day_block=month_soup.find("ol", class_="css-7ybqih")
                 day_links=day_block.find_all("a")
             except AttributeError:
@@ -88,7 +88,7 @@ for ytext in year_hrefs:
                     headline_soup = BeautifulSoup(day_page.content, "html.parser")
                     # print(headline_soup)
                     try:
-                        print("test day")
+                        # print("test day")
                         headline_block=headline_soup.find("ul", class_="css-cmbicj")
                     # print(headline_block)
                         indv_headlines=headline_block.find_all("a")
@@ -103,18 +103,24 @@ for ytext in year_hrefs:
                     else:
                         for item in indv_headlines:
                             print(f'{mtext+dtext+ytext},{str(item.string)}')
-                            headline.append(str(item.string))
-                            headline_date.append(mtext+dtext+ytext)
-                            num_headlines+=1
+                            try:
+                                if langdetect.detect(str(item.string))!="en":
+                                    print("skipped")
+                                    continue
+                            except langdetect.lang_detect_exception.LangDetectException:
+                                print("skipped")
+                                continue
+                            else:
+                                headline.append(str(item.string))
+                                headline_date.append(mtext+dtext+ytext)
+                                num_headlines+=1
 #write data into csv
 dir_path = os.path.dirname(os.path.realpath(__file__))
-headline_data=open(dir_path+'/data/headlines.csv', 'a')
-headline_dates_data=open(dir_path+'/data/headlines_dates.csv', 'a')
+headline_data=open(dir_path+'/data/nyt_headlines.csv', 'a')
 headline_data.write("NYT\n")
-headline_dates_data.write("NYT\n")
 for index in range(len(headline)):
-    headline_data.write(headline[index]+"\n")
-    headline_dates_data.write(headline_date[index]+"\n")
+    headline_data.write(headline_date[index])
+    headline_data.write(","+ headline[index]+"\n")
+
 headline_data.close()
-headline_dates_data.close()
 print(error_count)
