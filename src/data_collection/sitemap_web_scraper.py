@@ -32,7 +32,7 @@ for url in base_urls:
             for index in range(len(submap_urls)):
                 submap=submap_urls[index]
                 date=submap_dates[index]
-                print(submap.string)
+                # print(submap.string)
                 headline=submap.string.replace('https://www.foxnews.com/','').split('/')[1]
                 headline=" ".join(headline.split('-'))
                 print(headline)
