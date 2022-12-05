@@ -70,7 +70,7 @@ for url in base_urls:
                     headline_date.append(date.string[0:9])
                     print(f"{date.string[0:9]},{headline}")
                     length+=1
-                    if length==1000:
+                    if length==100:
                         length=0
                         break
 
