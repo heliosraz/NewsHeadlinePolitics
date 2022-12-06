@@ -4,7 +4,7 @@ import langdetect
 import os
 
 error_count=0
-base_urls = ["https://www.foxnews.com/sitemap.xml","https://www.washingtonpost.com/wp-stat/sitemaps/index.xml","https://www.bbc.com/sitemaps/https-index-com-archive.xml"]
+base_urls = ["https://www.foxnews.com/sitemap.xml","https://www.bbc.com/sitemaps/https-index-com-archive.xml"]
 site=[]
 author_names=[]
 headlines=[]
@@ -12,6 +12,7 @@ headline_date=[]
 year_hrefs=[]
 
 for url in base_urls:
+    headlines=[]
     print(f"{url.split('.')[1]}\n")
     r = requests.get(url)
     xml = r.text
@@ -32,8 +33,13 @@ for url in base_urls:
             for index in range(len(submap_urls)):
                 submap=submap_urls[index]
                 date=submap_dates[index]
-                # print(submap.string)
-                headline=submap.string.replace('https://www.foxnews.com/','').split('/')[1]
+                print(submap.string)
+                headline=submap.string.replace('https://www.foxnews.com/','').split('/')
+                for h in headline:
+                    if "-" in h:
+                        headline=h
+                        break
+                print(headline)
                 headline=" ".join(headline.split('-'))
                 print(headline)
                 try:
@@ -48,6 +54,10 @@ for url in base_urls:
                     headline_date.append(date.string[0:10])
                     print(f"{date.string[0:10]},{headline}")
                     length+=1
+                    if length==100:
+                        length=0
+                        break
+        print(headlines)
                     # if length==1000:
                     #     length=0
                     #     break
@@ -74,34 +84,11 @@ for url in base_urls:
                         length=0
                         break
 
-            # for index in range(len(submap_urls)):
-            #     submap=submap_urls[index]
-            #     date=submap_dates[index]
-            #     if submap!=None:
-            #         submap=submap.string.replace('amp;', '')
-            #         # print(submap)
-            #         page_r = requests.get(submap)
-            #         page_soup = BeautifulSoup(page_r.content, 'html.parser')
-            #         try:
-            #             if langdetect.detect(page_soup.find("h1").string)!="en":
-            #                 print("skipped")
-            #                 continue
-            #         except langdetect.lang_detect_exception.LangDetectException:
-            #             print("skipped")
-            #             continue
-            #         else:
-            #             headline.append(page_soup.find("h1").string)
-            #             headline_date.append(date.string[0:9])
-            #             print(f'{date.string[0:9]},{page_soup.find("h1").string}')
-            #             length+=1
-            #             if length==1000:
-            #                 length=0
-            #                 break
     dir_path = os.path.dirname(os.path.realpath(__file__))
     headline_data=open(dir_path+f"/data/{url.split('.')[1]}_headlines.csv", 'w')
     headline_data.write(f"{url.split('.')[1]}\n")
-    for index in range(len(headline)):
-        headline_data.write(headline_date[index])
-        headline_data.write(headline[index]+"\n")
+    for index in range(len(headlines)):
+        headline_data.write(headline_date[index]+", ")
+        headline_data.write(headlines[index]+"\n")
     headline_data.close()
     print(f"done {url}")
