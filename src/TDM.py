@@ -20,10 +20,10 @@ for filename in os.listdir(data):
     file = os.path.join(data, filename)
     #rows = csv.reader(open('foo.csv', 'rU'),delimiter=',')
     
-    csvfile = pd.read_csv('a')
+    csvfile = pd.read_csv('data')
     row_count = sum(1 for row in open(data))
-    skip = sorted(random.sample(range(row_count),row_count-samples))
+    skip = sorted(random.sample(range(row_count),row_count - samples))
     df = pd.read_csv(data, skiprows=skip)
-    
+
     print(df)
     # 
