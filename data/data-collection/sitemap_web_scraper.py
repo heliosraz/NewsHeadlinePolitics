@@ -68,6 +68,7 @@ for i in range(len(base_urls)):
     headlines=[]
     url=base_urls[i]
     print(f"{url.split('/')[2]}\n")
+    # gets fox data
     if i==0:
         sitemap_urls,sitemap_soup = get_urls(url)
         for submap in sitemap_urls:
@@ -98,6 +99,7 @@ for i in range(len(base_urls)):
                         break
                 else:
                     print("skipped")
+    # gets bbc data
     elif i==1:
         length=0
         sitemap_urls,sitemap_soup = get_urls(url)
@@ -107,6 +109,7 @@ for i in range(len(base_urls)):
             for index in range(len(article_urls)):
                 article_url=article_urls[index]
                 if article_url.string.split('.com/')[1].split('/')[0]!="news":
+                    print("test")
                     print('skipped')
                     continue
                 url,article_soup=get_urls(article_url.string,"html",id=None)
@@ -133,6 +136,7 @@ for i in range(len(base_urls)):
                     break
             if length>=15000:
                 break
+    # gets washington post data
     elif i==2:
         sitemap_urls,sitemap_soup = get_urls(url)
         for submap in sitemap_urls:
@@ -160,16 +164,20 @@ for i in range(len(base_urls)):
                         break
                 else:
                     print("skipped")
+    # gets cs monitor data
     elif i==3:
+        length=0
         sitemap_urls,sitemap_soup = get_urls(url)
         for j in range(len(sitemap_urls)):
             sitemap=sitemap_urls[j].string
             print(sitemap)
+            print("-auto-1" not in sitemap)
             if "-auto-1" not in sitemap:
                     print('skipped')
                     continue
             submap_urls,soup = get_urls(sitemap)
             for index in range(len(submap_urls)-3):
+                print("test")
                 article_url=submap_urls[index].string
                 try:
                     date=get_urls(article_url.string,'html',None)[1].find("time")["datetime"]
@@ -178,22 +186,31 @@ for i in range(len(base_urls)):
                     continue
                 print(article_url.string)
                 headline=article_url.string.split('/')[-1]
-                print(headline)
-                print(".html" in headline)
                 if ".html" not in headline:
                     headline=" ".join(headline.split('-'))
                 else:
-                    headline=get_urls(article_url.string,'html',None)[1].find("h1").string.splitlines()[2].replace("/t",'')
+                    try:
+                        headline=get_urls(article_url.string,'html',None)[1].find("h1").string.splitlines()[2].replace("/t",'')
+                    except IndexError:
+                        print("skipped")
+                        continue
                 print(headline)
                 if is_eng(headline):
                     headlines.append(headline)
                     headline_date.append(date[0:10])
                     print(f"{date[0:10]}, {headline}")
+                    length+=1
+                    if length%50==0:
+                        continue
                 else:
                     print("skipped")
+            if length==10000:
+                break
+    # gets mypost data
     elif i==4:
-       sitemap_urls= get_urls(url,'txt','Sitemap:')
-       for j in range(13,len(sitemap_urls)-6):
+        sitemap_urls= get_urls(url,'txt','Sitemap:')
+        for j in range(13,len(sitemap_urls)-6):
+            # 13,len(sitemap_urls)-6
             sitemap=sitemap_urls[j]
             submap_urls,submap_soup = get_urls(sitemap)
             # print(sitemap)
@@ -231,7 +248,16 @@ for i in range(len(base_urls)):
                         print(f"{date.string[0:10]},{headline}")
                         dates_index+=1
                     else:
-                        print("skipped")            
+                        print("skipped")
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        headline_data=open(dir_path+"/data/nypost_headlines.csv", 'w')
+        headline_data.write("nypost\n")
+        for index in range(len(headlines)):
+            headline_data.write(headline_date[index]+", ")
+            headline_data.write(headlines[index]+"\n")
+        headline_data.close()
+        print(f"done {url}")
+        break
     elif i==5:
         sitemap_urls = get_urls(url)
     elif i==6:
