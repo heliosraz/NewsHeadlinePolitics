@@ -24,3 +24,5 @@ term_dict={}
 # U is the document-topic matrix
 # S is the diagonal matrix of sqrt(eigenvalues)
 # V is the word embedding matrix
+
+
