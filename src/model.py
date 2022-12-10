@@ -23,21 +23,9 @@ key={'nyt_headlines.csv':-1,'foxnews_headlines.csv':2,'washingtonpost_headlines.
 y=[]
 
 # Input parameters
-samples = 1000
+samples = 2000
+
 # methods
-##defining possible activations
-
-##adding words into dictionary
-##term document matrix generation
-
-## at some point need
-# U, S, V =np.linalg.svd(X)
-# X is the term doument matrix
-# U is the document-topic matrix
-# S is the diagonal matrix of sqrt(eigenvalues)
-# V is the word embedding matrix
-
-# training
 # get tdms 
 dir = Path(__file__).parents[1]
 tdm= str(dir) + "/data/data_collection/processed_data/term_matrices"
@@ -46,23 +34,26 @@ tdm= str(dir) + "/data/data_collection/processed_data/term_matrices"
 def p(j,X,y): 
     total=0
     for i in y:
-        if np.equal(j,i):
+        # print(i)
+        # print(f"j={j}")
+        if j==i:
             total+=1
     return total/(X.shape[0]-1)
 
 def N(x, mu, var):
     return np.sqrt(1/(2*np.pi*var))*(np.exp(-(1/(2*var))*(x-mu)**2))
-    
+
 def p_cond(x,i,j,X,y):
     X_kj=X[np.where(y==i),j]
-    print(X_kj)
+    X_kj=set(np.ravel(np.array(X_kj)))
     # X_kj=[X[k,j] for k,item in enumerate(y) if item==i]
     mu=sum(X_kj)/sum([1 for item in y if item==i])
-    Ex=sum([a*p(a,X,X_kj) for a in np.unique(X_kj)])
-    Ex2=sum([a**2*p(a,X,X_kj) for a in np.unique(X_kj)])
+    Ex=sum([a*p(a,X,X_kj) for a in X_kj])
+    Ex2=sum([a**2*p(a,X,X_kj) for a in X_kj])
     var=np.abs(Ex2-Ex**2)
     if var==0:
         var=0.1
+    # print(x[j])
     return N(x[j],mu, var)
     
 def bayes_prediction(x,X,y):
@@ -92,13 +83,17 @@ def count(title, query):
         # print(f"c={c}")
     return c
 
+#generating the term document matrix
 def term_matrix():
     results=set()
     for filename in os.listdir(data):
         file_path = "/".join([data,filename])
         
         rows = pd.read_csv(file_path, on_bad_lines='skip')
-        keeps[filename] = sorted(random.sample(range(len(rows)),samples))
+        if samples<=len(rows):
+            keeps[filename] = sorted(random.sample(range(len(rows)),samples))
+        else:
+            keeps[filename] = range(len(rows))
         rows_compressed = rows.iloc[keeps[filename],:]
         rows_compressed = rows_compressed.iloc[:, 1]
 
@@ -135,4 +130,25 @@ def term_matrix():
         term_document_matrices.append(term_document_matrix)
         y.append([key[filename]]*len(rows_compressed))
     return term_document_matrices,y
+#method to vectorize text
+def vectorize(title):
+    X=[]
+    for i in term_matrix():
+        for j in i:
+            X.append(j)
+    vector=[]
+    title = str(title).strip().split(" ")
+    for t in title:
+        t=t.strip()
+    array = np.zeros(len(results))
+    word_p=[]
+    for word in set(title):
+        X[:,results.index(word)]
+        idf=np.log(len(rows_compressed)/count(rows_compressed,word))
+        array[results.index(str(word).lower().strip())] = idf*count(title, str(word).lower()) / len(title)
+        word_p.append(count(title, str(word).lower()) / len(title))
+    return vector
 
+
+if __name__=="__main__":
+    term_matrix()
