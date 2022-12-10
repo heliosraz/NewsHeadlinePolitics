@@ -22,8 +22,12 @@ samples = 1000
 def count(title, query):
     c = 0
     for word in title:
-        if (query in word):
+        # print(word.lower())
+        # print(query.lower())
+        # print(query.lower() in word.lower())
+        if (str(query).lower() in str(word).lower()):
             c = c + 1
+        # print(f"c={c}")
     return c
 
 for filename in os.listdir(data):
@@ -49,25 +53,24 @@ for filename in os.listdir(data):
     term_document_matrix = []
     
     for title in rows_compressed:
-        title = str(title).split(" ")
+        title = str(title).strip().split(" ")
         for t in title:
             t=t.strip()
         array = np.zeros(len(results))
-
+        word_p=[]
         for word in set(title):
-            array[results.index(str(word).lower().strip())] = count(title, str(word).lower()) / len(title)
-            # try:
-            #     array[results.index(str(word).lower())] = count(title, str(word).lower()) / len(title)
-            # except ValueError:
-            #     print(title)
-            #     print(word)
-            #     print(results)
-            #     break
-            
+            idf=np.log(len(rows_compressed)/count(rows_compressed,word))
+            array[results.index(str(word).lower().strip())] = idf*count(title, str(word).lower()) / len(title)
+            word_p.append(count(title, str(word).lower()) / len(title))
+        
+        # if sum(array)<1:
+        #     print(sum(array))
+        #     print(word_p)
+        #     print(title)
         term_document_matrix.append(array)
             
     term_document_matrices.append(term_document_matrix)
-    print
+
     
 
     
