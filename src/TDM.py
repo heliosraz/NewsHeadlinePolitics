@@ -22,7 +22,7 @@ samples = 1000
 def count(title, query):
     c = 0
     for word in title:
-        if (word == query):
+        if (query in word):
             c = c + 1
     return c
 
@@ -55,15 +55,19 @@ for filename in os.listdir(data):
         array = np.zeros(len(results))
 
         for word in set(title):
-            try:
-                array[results.index(str(word))] = count(title, word) / len(title)
-            except ValueError:
-                print(title)
-                continue
+            array[results.index(str(word).lower().strip())] = count(title, str(word).lower()) / len(title)
+            # try:
+            #     array[results.index(str(word).lower())] = count(title, str(word).lower()) / len(title)
+            # except ValueError:
+            #     print(title)
+            #     print(word)
+            #     print(results)
+            #     break
             
         term_document_matrix.append(array)
             
     term_document_matrices.append(term_document_matrix)
+    print
     
 
     
