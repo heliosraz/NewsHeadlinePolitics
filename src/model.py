@@ -1,25 +1,26 @@
 #import packages
 import numpy as np
-import matplotlib.pyplot as plt
-from numpy import linalg as LA
-import plotly
-import random, time
+import random
 from collections import Counter
-from sklearn.model_selection import train_test_split
-import json
-from sklearn.datasets import fetch_openml
-import json
-from json import JSONEncoder
 import os
 import pandas as pd
 from pathlib import Path
+import random
+import pandas as pd
+from pathlib import Path
 
-term_dict={}
+np.random.seed(289)
+# Finds path to data folder
+p = Path(__file__).parents[1]
+data = str(p) + "/data/data_collection/raw_data"
+
 # Sets up variables
 word_list = []
 keeps = {}
 term_document_matrices = []
 results = set()
+key={'nyt_headlines.csv':-1,'foxnews_headlines.csv':2,'washingtonpost_headlines.csv':-1,'csmonitor_headlines.csv':0,'nypost_headlines.csv':1,'cnn_headlines.csv':-2}
+y=[]
 
 # Input parameters
 samples = 1000
@@ -35,11 +36,6 @@ samples = 1000
 # U is the document-topic matrix
 # S is the diagonal matrix of sqrt(eigenvalues)
 # V is the word embedding matrix
-
-
-arch={}
-activations={}
-file_name=""
 
 # training
 # get tdms 
@@ -58,7 +54,9 @@ def N(x, mu, var):
     return np.sqrt(1/(2*np.pi*var))*(np.exp(-(1/(2*var))*(x-mu)**2))
     
 def p_cond(x,i,j,X,y):
-    X_kj=[X[k,j] for k,item in enumerate(y) if item==i]
+    X_kj=X[np.where(y==i),j]
+    print(X_kj)
+    # X_kj=[X[k,j] for k,item in enumerate(y) if item==i]
     mu=sum(X_kj)/sum([1 for item in y if item==i])
     Ex=sum([a*p(a,X,X_kj) for a in np.unique(X_kj)])
     Ex2=sum([a**2*p(a,X,X_kj) for a in np.unique(X_kj)])
@@ -83,19 +81,6 @@ def bayes_prediction(x,X,y):
             label=i
     return label
 
-
-import os
-import csv
-import numpy as np
-import random
-import pandas as pd
-from pathlib import Path
-
-np.random.seed(289)
-# Finds path to data folder
-p = Path(__file__).parents[1]
-data = str(p) + "/data/data_collection/raw_data"
-
 def count(title, query):
     c = 0
     for word in title:
@@ -106,8 +91,9 @@ def count(title, query):
             c = c + 1
         # print(f"c={c}")
     return c
-    
-def tdm():
+
+def term_matrix():
+    results=set()
     for filename in os.listdir(data):
         file_path = "/".join([data,filename])
         
@@ -120,10 +106,9 @@ def tdm():
             results.update(str(row).lower().split("\n")[0].strip().split(" "))
 
     results = list(results)
-
-    for filename in os.listdir(data):    
+    print(os.listdir(data))  
+    for filename in os.listdir(data):
         file_path = "/".join([data,filename])
-        
         rows=pd.read_csv(file_path, on_bad_lines='skip')
         rows_compressed = rows.iloc[keeps[filename],:]
         rows_compressed = rows_compressed.iloc[:, 1]
@@ -148,16 +133,6 @@ def tdm():
             term_document_matrix.append(array)
                 
         term_document_matrices.append(term_document_matrix)
-
-    
-
-    
-
-
-
-# # iterate over term documents
-# for filename in os.listdir(tdm):
-#     file = "/".join([tdm,filename])
-#     csvfile = pd.read_csv(file)
-
+        y.append([key[filename]]*len(rows_compressed))
+    return term_document_matrices,y
 
