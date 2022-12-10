@@ -23,7 +23,7 @@ key={'nyt_headlines.csv':-1,'foxnews_headlines.csv':2,'washingtonpost_headlines.
 y=[]
 
 # Input parameters
-samples = 100
+samples = 2000
 
 # methods
 # get tdms 
@@ -129,23 +129,7 @@ def term_matrix():
                 
         term_document_matrices.append(term_document_matrix)
         y.append([key[filename]]*len(rows_compressed))
-
     return term_document_matrices,y
-
-#write data into csv
-def tdm_to_csv(term_document_matrices,y):   
-    X = []
-    for i in term_document_matrices:
-        for j in i:
-            X.append(j)
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    tdm_file = open(str(Path(__file__).parents[1])+"/data/processed_data/tdm.csv","w")
-    for row in range(len(X)):
-        for column in range(len(X[0])):
-            tdm_file.write(str(X[row][column])+",")
-        tdm_file.write("\n")
-    tdm_file.close()
-    
 #method to vectorize text
 def vectorize(title):
     X=[]
@@ -167,13 +151,4 @@ def vectorize(title):
 
 
 if __name__=="__main__":
-    x,y = term_matrix()
-    tdm_to_csv(x,y)
-    
-    
-    
-    
-    
-    
-    
-    
+    term_matrix()
