@@ -29,8 +29,8 @@ import term_doc as td
 #         array[results.index(str(word).lower().strip())] = idf*count(title, str(word).lower()) / len(title)
 #         word_p.append(count(title, str(word).lower()) / len(title))
 #     return vector
-def main():
-    td.term_matrix()
+def main(samples=None):
+    td.term_matrix(samples=samples)
 
 if __name__=="__main__":
     main()

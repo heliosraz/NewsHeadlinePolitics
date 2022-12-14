@@ -10,25 +10,24 @@ import pandas as pd
 from pathlib import Path
 
 np.random.seed(289)
-# Finds path to data folder
-p = Path(__file__).parents[1]
-data = str(p) + "/data/data_collection/raw_data"
 
 # Sets up variables
 word_list = []
-keeps = {}
+index_keep = {}
 term_document_matrices = []
 results = set()
 key={'nyt_headlines.csv':-1,'foxnews_headlines.csv':2,'washingtonpost_headlines.csv':-1,'csmonitor_headlines.csv':0,'nypost_headlines.csv':1,'cnn_headlines.csv':-2}
 y=[]
 
-# Input parameters
-samples = 2000
-
-# methods
-# get tdms 
+#initializing path names
+# main directory
 dir = Path(__file__).parents[1]
-tdm= str(dir) + "/data/data_collection/processed_data/term_matrices"
+
+# get path to raw_data folder
+data = str(dir) + "/data/data_collection/raw_data"
+
+# get path to tdms folder
+tdm_path= str(dir) + "/data/data_collection/processed_data/term_matrices"
 
 def count(title, query):
     c = 0
@@ -37,29 +36,35 @@ def count(title, query):
             c = c + 1
     return c
 
-#generating the term document matrix
-def term_matrix(samples=100, t_headline: str=None):
+def raw_data_compress(num_samples):
     results=set()
+    # reads raw_data files
     for filename in os.listdir(data):
-        file_path = "/".join([data,filename])
-        
-        rows = pd.read_csv(file_path, on_bad_lines='skip')
-        if samples<=len(rows):
-            keeps[filename] = sorted(random.sample(range(len(rows)),samples))
+        file_path = data+"/"+filename
+        data_rows = pd.read_csv(file_path, on_bad_lines='skip')
+        # filtering data for number of samples wanted wanted
+        # handling if the number of samples wanted is more than the file contains.
+        # saving 
+        if num_samples<=len(data_rows):
+            index_keep[filename] = random.sample(range(len(data_rows)),num_samples)
         else:
-            keeps[filename] = range(len(rows))
-        rows_compressed = rows.iloc[keeps[filename],:]
-        rows_compressed = rows_compressed.iloc[:, 1]
-
-        for row in rows_compressed:
+            index_keep[filename] = range(len(data_rows))
+        
+        data_compressed = data_rows.iloc[index_keep[filename], 1]
+        # data_compressed = data_compressed.iloc[:, 1]
+        for row in data_compressed:
             results.update(str(row).lower().split("\n")[0].strip().split(" "))
+    return results
 
+#generating the term document matrix
+def term_matrix(samples=100, test_headline: str=None):
+    raw_data_compress()
     results = list(results)
     print(os.listdir(data))  
     for filename in os.listdir(data):
         file_path = "/".join([data,filename])
-        rows=pd.read_csv(file_path, on_bad_lines='skip')
-        rows_compressed = rows.iloc[keeps[filename],:]
+        data_rows=pd.read_csv(file_path, on_bad_lines='skip')
+        rows_compressed = data_rows.iloc[index_keep[filename],:]
         rows_compressed = rows_compressed.iloc[:, 1]
         
         term_document_matrix = []
@@ -84,3 +89,6 @@ def term_matrix(samples=100, t_headline: str=None):
         term_document_matrices.append(term_document_matrix)
         y.append([key[filename]]*len(rows_compressed))
     return term_document_matrices,y
+
+if __name__=="__main__":
+    term_matrix()

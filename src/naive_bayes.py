@@ -10,10 +10,10 @@ def p(j,X,y):
             total+=1
     return total/(X.shape[0]-1)
 
-def N(x, mu, var):
+def normal(x, mu, var):
     return np.sqrt(1/(2*np.pi*var))*(np.exp(-(1/(2*var))*(x-mu)**2))
 
-def p_cond(x,i,j,X,y):
+def N(x,i,j,X,y):
     X_kj=X[np.where(y==i),j]
     X_kj=set(np.ravel(np.array(X_kj)))
     mu=sum(X_kj)/sum([1 for item in y if item==i])
@@ -22,7 +22,7 @@ def p_cond(x,i,j,X,y):
     var=np.abs(Ex2-Ex**2)
     if var==0:
         var=0.1
-    return N(x[j],mu, var)
+    return normal(x[j],mu, var)
     
 def bayes_prediction(x,X,y):
     label=0
@@ -31,7 +31,7 @@ def bayes_prediction(x,X,y):
         theta=sum([1 for item in y if item==i])/X.shape[0]
         l=theta
         for j in range(X.shape[1]):
-            l*=p_cond(x,i,j,X,y)
+            l*=N(x,i,j,X,y)
         if l>label_p:
             label_p=l
             label=i
