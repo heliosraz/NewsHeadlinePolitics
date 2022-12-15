@@ -1,9 +1,6 @@
 #import packages
 import numpy as np
-import random
 from collections import Counter
-import os
-import pandas as pd
 from pathlib import Path
 import random
 import pandas as pd
@@ -29,8 +26,25 @@ import term_doc as td
 #         array[results.index(str(word).lower().strip())] = idf*count(title, str(word).lower()) / len(title)
 #         word_p.append(count(title, str(word).lower()) / len(title))
 #     return vector
-def main(samples=None):
-    td.term_matrix(samples=samples)
+
+
+def main(test, s1=100):
+  X,y=td.term_matrix(samples=s1)
+  # for matrix in result[0]:
+  #   print("_____________________________________________________________")
+  #   print(matrix)
+  #   for row in matrix:
+  #     print(sum(row))
+  correct=0
+  for t in test:
+    t=int(s1/2*t)
+    pred = nb.bayes_prediction(X[t,:],X,y)
+    target = y[t]
+    print(f'predicting: {pred}, true value: {target}')
+    if pred==target:
+      correct+=1
+  print(f"the percent of accuracy is: {correct/12}")
 
 if __name__=="__main__":
-    main()
+    for i in [100,200,300,500]:
+      main(range(12),i)

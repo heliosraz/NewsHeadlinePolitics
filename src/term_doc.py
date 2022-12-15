@@ -9,15 +9,11 @@ import random
 import pandas as pd
 from pathlib import Path
 
-np.random.seed(289)
-
 # Sets up variables
 word_list = []
 index_keep = {}
-term_document_matrices = []
 results = set()
 key={'nyt_headlines.csv':-1,'foxnews_headlines.csv':2,'washingtonpost_headlines.csv':-1,'csmonitor_headlines.csv':0,'nypost_headlines.csv':1,'cnn_headlines.csv':-2}
-y=[]
 
 #initializing path names
 # main directory
@@ -29,10 +25,26 @@ data = str(dir) + "/data/data_collection/raw_data"
 # get path to tdms folder
 tdm_path= str(dir) + "/data/data_collection/processed_data/term_matrices"
 
+def join(X):
+    tf_idf=[]
+    print("test join()")
+    c=0
+    for matrix in X:
+        # print("changed matrix")
+        c+=1
+        for row in matrix:
+            # print("-------------------")
+            # print(len(row))
+            tf_idf.append(row)
+    # print(len(tf_idf))
+    # print("end")
+    # print(f"c={c}")
+    return tf_idf
+
 def count(title, query):
     c = 0
     for word in title:
-        if (str(query).lower() in str(word).lower()):
+        if (str(query).lower().strip() in str(word).lower().strip()):
             c = c + 1
     return c
 
@@ -58,7 +70,9 @@ def raw_data_compress(num_samples):
 
 #generating the term document matrix
 def term_matrix(samples=100, test_headline: str=None):
-    raw_data_compress()
+    term_document_matrices=[]
+    y=[]
+    results=raw_data_compress(samples)
     results = list(results)
     print(os.listdir(data))  
     for filename in os.listdir(data):
@@ -68,27 +82,25 @@ def term_matrix(samples=100, test_headline: str=None):
         rows_compressed = rows_compressed.iloc[:, 1]
         
         term_document_matrix = []
-        
         for title in rows_compressed:
             title = str(title).strip().split(" ")
             for t in title:
                 t=t.strip()
             array = np.zeros(len(results))
-            word_p=[]
             for word in set(title):
                 idf=np.log(len(rows_compressed)/count(rows_compressed,word))
                 array[results.index(str(word).lower().strip())] = idf*count(title, str(word).lower()) / len(title)
-                word_p.append(count(title, str(word).lower()) / len(title))
             
-            # if sum(array)<1:
-            #     print(sum(array))
-            #     print(word_p)
-            #     print(title)
+            # print(len(array))
             term_document_matrix.append(array)
-                
+        # print(type(list(term_document_matrix)))        
         term_document_matrices.append(term_document_matrix)
-        y.append([key[filename]]*len(rows_compressed))
-    return term_document_matrices,y
+        y.append(list([key[filename]]*len(rows_compressed)))
+    # print(type(term_document_matrices))
+    # print(join(term_document_matrices))
+    # print(np.array(join(term_document_matrices)).shape)
+    # print(len(term_document_matrices))
+    return np.array(join(term_document_matrices)),np.array(np.ravel(y))
 
 if __name__=="__main__":
     term_matrix()
