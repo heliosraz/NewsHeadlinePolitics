@@ -12,7 +12,7 @@ def p(j,X,y):
     return total/(X.shape[0]-1)
 
 def normal(x, mu, var):
-    return np.sqrt(1/(2*np.pi*var))*(np.exp(-(1/(2*var))*(x-mu)**2))
+    return np.sqrt(1/(2*np.pi*var))*(np.exp((-(x-mu))**2/(2*var)))
 
 def N(x,i,j,X,y):
     # print(np.where(y==i))

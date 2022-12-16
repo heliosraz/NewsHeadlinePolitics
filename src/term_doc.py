@@ -27,7 +27,7 @@ tdm_path= str(dir) + "/data/data_collection/processed_data/term_matrices"
 
 def join(X):
     tf_idf=[]
-    print("test join()")
+    # print("test join()")
     c=0
     for matrix in X:
         # print("changed matrix")
@@ -74,7 +74,7 @@ def term_matrix(samples=100, test_headline: str=None):
     y=[]
     results=raw_data_compress(samples)
     results = list(results)
-    print(os.listdir(data))  
+    # print(os.listdir(data))  
     for filename in os.listdir(data):
         file_path = "/".join([data,filename])
         data_rows=pd.read_csv(file_path, on_bad_lines='skip')

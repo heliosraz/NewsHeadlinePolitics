@@ -40,10 +40,12 @@ def main(test, s1=100):
     t=int(s1/2*t)
     pred = nb.bayes_prediction(X[t,:],X,y)
     target = y[t]
-    print(f'predicting: {pred}, true value: {target}')
+    # print(f'predicting: {pred}, true value: {target}')
     if pred==target:
       correct+=1
   print(f"the percent of accuracy is: {correct/12}")
+  print("--------------------------------------------")
+  return correct/12
 
 if __name__=="__main__":
     for i in [100,200,300,500]:
